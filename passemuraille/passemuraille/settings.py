@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-y)5u(qd8ds!yynnm^u+=c%wd4cydb0076p46@6@1@0fb(6@*k%
 DEBUG = True
 
 ALLOWED_HOSTS = ['https://passe-muraille-production.up.railway.app', 'passe-muraille-production.up.railway.app']
-CSRF_TRUSTED_ORIGINS = ['https://passe-muraille-production.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://passe-muraille-production.up.railway.app', 'https://passe-muraille-production.up.railway.app/login']
 # Application definition
 
 INSTALLED_APPS = [
