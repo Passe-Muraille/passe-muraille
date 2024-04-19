@@ -1,0 +1,79 @@
+{% extends './base.html' %}
+
+{% block content %}
+{% load static %}
+<section class="elementor-section elementor-top-section elementor-element elementor-element-04720e0 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="04720e0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+    <div class="elementor-background-overlay"></div>
+    <div class="elementor-container elementor-column-gap-default">
+<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-dc1e09b" data-id="dc1e09b" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+<div class="elementor-widget-wrap elementor-element-populated">
+<div class="elementor-element elementor-element-e2b0ab4 e-grid e-con-boxed e-con e-parent" data-id="e2b0ab4" data-element_type="container" data-core-v316-plus="true">
+<div class="e-con-inner">
+<div class="elementor-element elementor-element-e7f83bf elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="e7f83bf" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+                            <img decoding="async" width="864" height="880" src="{% static 'wp-content/uploads/2024/03/logo_brun-3.png' %}" class="attachment-large size-large wp-image-677" alt="">													</div>
+</div>
+<div class="elementor-element elementor-element-92475a3 elementor-widget elementor-widget-heading" data-id="92475a3" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h2 class="elementor-heading-title elementor-size-default">{{ enquete.titre }}</h2>		</div>
+</div>
+</div>
+</div>
+<div style='z-index:1'class="elementor-element elementor-element-88df7e7 e-flex e-con-boxed e-con e-parent" data-id="88df7e7" data-element_type="container" data-core-v316-plus="true">
+<div class="e-con-inner">
+<div class="elementor-element elementor-element-c3a8bd4 elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="c3a8bd4" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+                            <img style="z-index:2" loading="lazy" decoding="async" width="1024" height="929" src="{% static 'wp-content/uploads/2024/03/ville_trombone_inclinee.png' %}" class="attachment-large size-large wp-image-695" alt="">													</div>
+</div>
+</div>
+</div>
+<div class="elementor-element elementor-element-210c0b2 elementor-widget elementor-widget-text-editor" data-id="210c0b2" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+<style>/*! elementor - v3.20.0 - 13-03-2024 */
+.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>				
+<p><span style="font-family:Stencil" class='entete'>Date : </span>{{ enquete.date }} </p>
+<p style="z-index:1"><span style="font-family:Stencil" class='entete'>Description : </span>
+{{ enquete.description }}</p>
+						</div>
+</div>
+<div class="elementor-element elementor-element-f702737 e-grid e-con-boxed e-con e-parent" data-id="f702737" data-element_type="container" data-core-v316-plus="true">
+<div class="e-con-inner">
+<div class="elementor-element elementor-element-81ce8a7 elementor-widget elementor-widget-text-editor" data-id="81ce8a7" data-element_type="widget" data-widget_type="text-editor.default">
+<div class="elementor-widget-container">
+    <form method="post" action="{% url 'introduction_enquete' enquete.id %}">
+        {% csrf_token %}
+        <div><p><span style="font-family:Stencil" class='entete'>Brigade en charge</span>
+            <br>
+        {{form.username}}
+        </p></div>
+
+        <div><p><span style="font-family:Stencil" class='entete'>MDP</span>
+            <br>
+            {{form.password}}
+        </p></div>
+
+    <div class="row">
+        
+        <div class="col-lg-4 text-right">
+            <button style="background-color:brown" type="submit">connexion</button>
+        </div>
+    </div>
+</form>
+    
+						</div>
+</div>
+<div class="elementor-element elementor-element-c7df9c8 elementor-widget elementor-widget-image" data-id="c7df9c8" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+                            <img loading="lazy" decoding="async" width="600" height="589" src="{% static 'wp-content/uploads/2024/03/img_sherlock.png' %}" class="attachment-large size-large wp-image-379" alt="">													</div>
+</div>
+</div>
+</div>
+<div class="elementor-element elementor-element-30300a5 elementor-widget elementor-widget-image" data-id="30300a5" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+                            <img loading="lazy" decoding="async" width="287" height="341" src="{% static 'wp-content/uploads/2024/03/sceau.png' %}" class="attachment-large size-large wp-image-670" alt="">													</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

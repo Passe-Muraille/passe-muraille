@@ -1,0 +1,75 @@
+{% extends './base.html' %}
+
+{% block content %}
+{% load static %}
+<section class="elementor-section elementor-top-section elementor-element elementor-element-507f1f1 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="507f1f1" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+    <div class="elementor-background-overlay"></div>
+    <div class="elementor-container elementor-column-gap-default">
+<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-962118b" data-id="962118b" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+<div class="elementor-widget-wrap elementor-element-populated">
+<div class="elementor-element elementor-element-cbd4bf3 e-grid e-con-boxed e-con e-parent" data-id="cbd4bf3" data-element_type="container" data-core-v316-plus="true">
+<div class="e-con-inner">
+<div class="elementor-element elementor-element-9629309 elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="9629309" data-element_type="widget" data-widget_type="image.default">
+<div class="elementor-widget-container">
+                            <img decoding="async" width="864" height="880" src="{% static 'wp-content/uploads/2024/03/logo_brun-3.png' %}" class="attachment-large size-large wp-image-677" alt="">													</div>
+</div>
+<div class="elementor-element elementor-element-6726386 elementor-widget elementor-widget-heading" data-id="6726386" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h2 class="elementor-heading-title elementor-size-default">{{ indice_autre.enquete.titre }}<br>
+</h2>		</div>
+</div>
+</div>
+</div>
+<div class="elementor-element elementor-element-03a3eef e-flex e-con-boxed e-con e-parent" data-id="03a3eef" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-core-v316-plus="true">
+<div class="e-con-inner">
+<div class="elementor-element elementor-element-6660cd8 e-flex e-con-boxed e-con e-child" data-id="6660cd8" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+<div class="e-con-inner">
+<div class="elementor-element elementor-element-ee2ba6e elementor-widget elementor-widget-heading" data-id="ee2ba6e" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+<h2 class="elementor-heading-title elementor-size-default">{{indice_autre.nom}}</h2>		</div>
+</div>
+</div>
+</div>
+<div class="elementor-element elementor-element-d61d52d elementor-widget-mobile__width-initial elementor-widget elementor-widget-heading" data-id="d61d52d" data-element_type="widget" data-widget_type="heading.default">
+<div class="elementor-widget-container">
+    <div id="to-be-overlay-image" style="padding:0px;">
+<h2 class="elementor-heading-title elementor-size-default" style="text-align:center"><input id='input-code' style="text-align:center;background:None; border:None; font-weight:400; font-size:15px; width:146px;" type="text" placeholder="Tapez le code"></h2>		
+<div id="to-be-hover-image">
+</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<script>
+    var to_be_overlay_image = document.getElementById('to-be-overlay-image');
+    var to_be_hover_image = document.getElementById('to-be-hover-image');
+
+    document.addEventListener('keyup', function(event) {
+        let input = document.getElementById("input-code").value;
+        console.log(input)
+        
+        var longueur_code = '{{indice_autre.code}}'.length
+        console.log()
+        if (input.length >= longueur_code){
+            if(input == '{{indice_autre.code}}') {
+            document.location.href="{% url 'indice_autre_ouverte' indice_autre.id %}";
+        } else {
+            to_be_overlay_image.className += " overlay-image";
+            to_be_hover_image.className += " hover-image";
+            setTimeout(() => {
+                to_be_overlay_image.classList.remove('overlay-image');
+                to_be_hover_image.classList.remove('hover-image');
+            }, 1000)
+        }
+    }
+    
+      });
+
+    
+
+</script>
+{% endblock %}
