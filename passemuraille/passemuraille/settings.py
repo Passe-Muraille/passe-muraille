@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['passe-muraille-production.up.railway.app']
 
-
+CSRF_TRUSTED_ORIGINS = ['passe-muraille-production.up.railway.app']
 # Application definition
 
 INSTALLED_APPS = [
@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'passemuraille.urls'
 
@@ -93,6 +94,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
 
 
 # Internationalization
