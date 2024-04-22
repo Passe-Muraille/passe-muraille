@@ -49,23 +49,40 @@
     <br>
     <span style="color:#430505; font-family:'Century Schoolbook'; font-style:normal; font-size:9px; font-weight:500">
     <select name="temoins" id="temoins_liste" style="border:1px solid #025378; background-color:#FFFFFF90">
-        <option value="">Liste témoins </option>
+        <option value="temoin-0">Liste témoins </option>
         {% for indice in indices_chiffres %}
-        <option value="{{indice.nom}}" id="indice_chiffres{{indice.id}}">{{indice.nom}}</option>
-        <script>
-            document.getElementById('indice_chiffres{{indice.id}}').onclick = function() {
-                document.location.href="{% url 'indice_enigme_chiffres' indice.id %}";
-            }
-        </script>
+        <option value="chiffres-{{indice.id}}" id="indice_chiffres{{indice.id}}">{{indice.nom}}</option>
+        
         {% endfor %}
         {% for indice in indices_autre %}
-        <option value="{{indice.nom}}" id="indices_autre{{indice.id}}">{{indice.nom}}</option>
-        <script>
-            document.getElementById('indices_autre{{indice.id}}').onclick = function() {
-                document.location.href="{% url 'indice_enigme_autre' indice.id %}";
-            }
-        </script>
+        <option value="autre-{{indice.id}}" id="indices_autre{{indice.id}}">{{indice.nom}}</option>
         {% endfor %}
+        <script>
+            const maListe = document.getElementById('temoins_liste');
+            
+            
+            // Ajout d'un écouteur d'événement 'change' à l'élément <select>
+            maListe.addEventListener('change', function() {
+                
+                // Cette fonction sera appelée chaque fois que l'option sélectionnée change
+                const optionSelectionnee = maListe.value; // Récupère la valeur de l'option sélectionnée
+                let detail_option = optionSelectionnee.split('-')
+                var type_option = detail_option[0]
+                var id_option = parseInt(detail_option[1])
+                console.log(optionSelectionnee)
+                console.log(type_option)
+                console.log(id_option)
+                console.log(typeof id_option)
+                // Appel de la fonction en fonction de l'option sélectionnée
+                if (type_option === 'chiffres') {
+                    document.location.href="{% url 'indice_enigme_chiffres' 1234 %}".replace(/1234/, id_option.toString());
+                } else if (type_option === 'autre') {
+                    console.log('true')
+                    document.location.href="{% url 'indice_enigme_autre' 1234 %}".replace(/1234/, id_option.toString());;
+                }
+            });
+        </script>
+            
     </select>
     </span>
     </p>
@@ -143,25 +160,42 @@
 <p><span class='entete' style="font-family:Stencil">Indices débloqués : </span>
     <br>
     <span style="color:#430505; font-family:'Century Schoolbook'; font-style:normal; font-size:9px; font-weight:500">
-    <select name="temoins" id="temoins_liste" style="border:1px solid #025378; background-color:#FFFFFF90">
-        <option value="">Liste témoins </option>
+    <select name="temoins" id="temoins_liste_unlock" style="border:1px solid #025378; background-color:#FFFFFF90">
+        <option value="temoin-0">Liste témoins </option>
         {% for indice in indices_chiffres_trouves %}
-        <option value="{{indice.indice.nom}}" id="indice_chiffres_trouve{{indice.indice.id}}">{{indice.indice.nom}}</option>
-        <script>
-            document.getElementById('indice_chiffres_trouve{{indice.indice.id}}').onclick = function() {
-                document.location.href="{% url 'indice_chiffres_ouverte' indice.indice.id %}";
-            }
-        </script>
+        <option value="chiffres-{{indice.id}}" id="indice_chiffres_trouve{{indice.indice.id}}">{{indice.indice.nom}}</option>
+
         {% endfor %}
         {% for indice in indices_autre_trouves %}
-        <option value="{{indice.nom}}" id="indice_autre_trouve{{indice.indice.id}}">{{indice.indice.nom}}</option>
-        <script>
-            document.getElementById('indice_autre_trouve{{indice.indice.id}}').onclick = function() {
-                document.location.href="{% url 'indice_autre_ouverte' indice.indice.id %}";
-                }
-            </script>
+        <option value="autre-{{indice.id}}" id="indice_autre_trouve{{indice.indice.id}}">{{indice.indice.nom}}</option>
+
         {% endfor %}
+        <script>
+            const maListe2 = document.getElementById('temoins_liste_unlock');
+            
+            // Ajout d'un écouteur d'événement 'change' à l'élément <select>
+            maListe2.addEventListener('change', function() {
+                
+                // Cette fonction sera appelée chaque fois que l'option sélectionnée change
+                const optionSelectionnee2 = maListe2.value; // Récupère la valeur de l'option sélectionnée
+                let detail_option = optionSelectionnee2.split('-')
+                var type_option = detail_option[0]
+                var id_option = parseInt(detail_option[1])
+                console.log(optionSelectionnee2)
+                console.log(type_option)
+                console.log(id_option)
+                console.log(typeof id_option)
+                // Appel de la fonction en fonction de l'option sélectionnée
+                if (type_option === 'chiffres') {
+                    document.location.href="{% url 'indice_enigme_chiffres' 1234 %}".replace(/1234/, id_option.toString());
+                } else if (type_option === 'autre') {
+                    console.log('true')
+                    document.location.href="{% url 'indice_enigme_autre' 1234 %}".replace(/1234/, id_option.toString());;
+                }
+            });
+        </script>
     </select>
+
     </span></p>
 <p><span class='entete' style="font-family:Stencil">Questions : </span>{{ enquete.questions }}<!--faire une boucle for --></p>
 <br><br><br><br>
