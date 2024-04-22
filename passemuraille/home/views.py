@@ -36,6 +36,11 @@ def introduction_enquete(request, id_enquete):
 @login_required
 def centrale_enquete(request, id_enquete):
 	enquete = Enquete.objects.get(id=id_enquete)
+	questions_sans_point = enquete.questions.split('?')
+	questions = []
+	for question in questions_sans_point:
+		if question != " " and question !="":
+			questions.append(question + "?")
 	indices_chiffres = Indice_chiffres.objects.filter(enquete=enquete)
 	indices_autre = Indice_autre.objects.filter(enquete=enquete)
 	indices_chiffres_trouves = Indice_chiffres_trouves.objects.filter(equipe=request.user)
@@ -65,7 +70,7 @@ def centrale_enquete(request, id_enquete):
 			'minutes': 0,
 			'seconds': 0
 		}
-	return render(request, 'home/centrale_enquete.html', {'enquete':enquete, 'indices_chiffres':indices_chiffres, "indices_autre":indices_autre, "indices_chiffres_trouves":indices_chiffres_trouves, "indices_autre_trouves":indices_autre_trouves, 'data':data})
+	return render(request, 'home/centrale_enquete.html', {'enquete':enquete, 'indices_chiffres':indices_chiffres, "indices_autre":indices_autre, "indices_chiffres_trouves":indices_chiffres_trouves, "indices_autre_trouves":indices_autre_trouves, 'data':data, 'questions':questions})
 
 @login_required
 def indice_enigme_chiffres(request, id_indice_chiffres):

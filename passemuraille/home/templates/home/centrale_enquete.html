@@ -100,7 +100,7 @@
     <a class="button" href="tel:0682086485" style="margin-top:5px"><img src="{% static "wp-content/uploads/2024/03/icone_tel.png" %}" alt="icone" style="position:relative; z-index:20; margin-right:3px; margin-bottom:3px; max-height:12px" />Passe-Muraille</a>
     </p>
 
-        <div class="elementor-widget-container" style="margin-top:-20px; margin-bottom:5px;">
+        <div class="elementor-widget-container" style="margin-top:-20px; margin-bottom:5px;text-align:center">
                             <img style="height:60px; width:auto;"decoding="async" width="864" height="880" src="{% static 'wp-content/uploads/2024/03/aide_img.png' %}" class="attachment-large size-large wp-image-677" alt="">													</div>
         
         
@@ -157,7 +157,7 @@
 </div>
 <div class="e-con-inner">
 
-<p><span class='entete' style="font-family:Stencil">Indices débloqués : </span>
+<p><span class='entete'>Indices débloqués : </span>
     <br>
     <span style="color:#430505; font-family:'Century Schoolbook'; font-style:normal; font-size:9px; font-weight:500">
     <select name="temoins" id="temoins_liste_unlock" style="border:1px solid #025378; background-color:#FFFFFF90">
@@ -197,7 +197,14 @@
     </select>
 
     </span></p>
-<p><span class='entete' style="font-family:Stencil">Questions : </span>{{ enquete.questions }}<!--faire une boucle for --></p>
+<p><span class='entete'>Questions : </span><!--faire une boucle for --></p>
+<ul id="liste_questions" style="color:#025378; margin-top:-10px">
+    {% for question in questions %}
+    <li style="font-family:Gabriola2;font-size:16px;color:#025378;font-weight:800">{{question}}</li>
+    {% endfor %}
+</ul>
+
+
 <br><br><br><br>
                            
 </div>
