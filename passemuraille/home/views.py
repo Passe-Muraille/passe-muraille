@@ -26,7 +26,7 @@ def introduction_enquete(request, id_enquete):
 				return redirect('centrale_enquete', id_enquete)
 				
 			else:
-				messages.error(request, 'Identifiant ou mot de passe incorrect')
+				#messages.error(request, 'Identifiant ou mot de passe incorrect')
 				return redirect('introduction_enquete', id_enquete)
 	else:
 		form = LoginForm()
