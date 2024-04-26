@@ -16,7 +16,7 @@
         </div>
         <div class="elementor-element elementor-element-7870e1e elementor-widget elementor-widget-heading" data-id="7870e1e" data-element_type="widget" data-widget_type="heading.default">
         <div class="elementor-widget-container">
-        <h2 class="elementor-heading-title elementor-size-default">Nom enquête 1<br>
+        <h2 class="elementor-heading-title elementor-size-default">{{ indice.enquete.titre }}<br>
         </h2>		</div>
         </div>
         </div>
@@ -29,7 +29,7 @@
             
             </div>
             </div>
-            <a href="{% url "centrale_enquete" 1 %}" style="outline:none!important;"><img src='{% static "wp-content/uploads/2024/03/retour.png" %}' style="height:50px; margin:50px"></img></a>
+            <a href="{% url "centrale_enquete" indice.enquete.id %}" style="outline:none!important;"><img src='{% static "wp-content/uploads/2024/03/retour.png" %}' style="height:50px; margin:50px"></img></a>
 </section>
 
     {% endblock %}
