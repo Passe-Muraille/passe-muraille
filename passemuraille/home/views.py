@@ -16,7 +16,7 @@ def introduction_enquete(request, id_enquete):
 	if request.method == "POST":
 		form = LoginForm(request.POST)
 		if form.is_valid():
-			username = form.cleaned_data["username"]
+			username = form.cleaned_data["username"].lower().replace(" ","")
 			password = form.cleaned_data["password"]
 				
 			user = authenticate(username=username, password=password)  # We check wither the data are correct
@@ -95,7 +95,8 @@ def indice_chiffres_ouverte(request, id_indice_chiffres):
 		newIndice.indice = Indice_chiffres.objects.get(id=id_indice_chiffres)
 		newIndice.date_decouverte = datetime.now()
 		newIndice.save()
-	return render(request, 'home/indice_chiffres_ouverte.html', {'id_indice_chiffres':id_indice_chiffres})
+	indice = Indice_chiffres.objects.get(id=id_indice_chiffres)
+	return render(request, 'home/indice_chiffres_ouverte.html', {'id_indice_chiffres':id_indice_chiffres, 'indice':indice})
 
 @login_required
 def indice_autre_ouverte(request, id_indice_autre):
@@ -110,7 +111,8 @@ def indice_autre_ouverte(request, id_indice_autre):
 		newIndice.indice = Indice_autre.objects.get(id=id_indice_autre)
 		newIndice.date_decouverte = datetime.now()
 		newIndice.save()
-	return render(request, 'home/indice_autre_ouverte.html', {'id_indice_autre':id_indice_autre})
+	indice = Indice_autre.objects.get(id=id_indice_autre)
+	return render(request, 'home/indice_autre_ouverte.html', {'id_indice_autre':id_indice_autre, 'indice':indice})
 
 from django.shortcuts import render
 

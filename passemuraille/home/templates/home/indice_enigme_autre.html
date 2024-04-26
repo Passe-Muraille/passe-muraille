@@ -37,7 +37,7 @@
 <div id="to-be-hover-image">
 </div></div>
 </div>
-</div>
+</div><a href="{% url "centrale_enquete" 1 %}" style="outline:none!important;"><img src='{% static "wp-content/uploads/2024/03/retour.png" %}' style="height:50px; margin:50px"></img></a>
 </div>
 </div>
 </div>
@@ -55,7 +55,7 @@
         var longueur_code = '{{indice_autre.code}}'.length
         console.log()
         if (input.length >= longueur_code){
-            if(input == '{{indice_autre.code}}') {
+            if(input.replaceAll(" ", "").toLowerCase() == '{{indice_autre.code}}') {
             document.location.href="{% url 'indice_autre_ouverte' indice_autre.id %}";
         } else {
             to_be_overlay_image.className += " overlay-image";

@@ -2,7 +2,7 @@
 
 {% block content %}
 {% load static %}
-<section class="elementor-section elementor-top-section elementor-element elementor-element-8d0f04f elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="8d0f04f" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+<section style="min-height:700px" class="elementor-section elementor-top-section elementor-element elementor-element-8d0f04f elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="8d0f04f" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
     
     <div class="elementor-background-overlay"></div>
     <div class="elementor-container elementor-column-gap-default">
@@ -21,23 +21,15 @@
         </div>
         </div>
         </div>
-        <div class="elementor-element elementor-element-c21b4d3 e-con-full e-flex e-con e-parent" data-id="c21b4d3" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-core-v316-plus="true">
             <div class="elementor-element elementor-element-5a1ea25 elementor-widget elementor-widget-text-editor" data-id="5a1ea25" data-element_type="widget" data-widget_type="text-editor.default">
             <div class="elementor-widget-container">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>						</div>
+                <p class="entete">{{ indice.nom }}</p>
+                <p>{{ indice.contenu_textuel|escape|linebreaks }}</p>						</div>
             </div>
-            <div class="elementor-element elementor-element-3bf983a e-flex e-con-boxed e-con e-child" data-id="3bf983a" data-element_type="container">
-            <div class="e-con-inner">
-            <div class="elementor-element elementor-element-2924838 elementor-widget elementor-widget-text-editor" data-id="2924838" data-element_type="widget" data-widget_type="text-editor.default">
-            <div class="elementor-widget-container">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>						</div>
+            
             </div>
             </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            </div>
+            <a href="{% url "centrale_enquete" 1 %}" style="outline:none!important;"><img src='{% static "wp-content/uploads/2024/03/retour.png" %}' style="height:50px; margin:50px"></img></a>
 </section>
 
     {% endblock %}

@@ -189,10 +189,10 @@
                 console.log(typeof id_option)
                 // Appel de la fonction en fonction de l'option sélectionnée
                 if (type_option === 'chiffres') {
-                    document.location.href="{% url 'indice_enigme_chiffres' 1234 %}".replace(/1234/, id_option.toString());
+                    document.location.href="{% url 'indice_chiffres_ouverte' 1234 %}".replace(/1234/, id_option.toString());
                 } else if (type_option === 'autre') {
                     console.log('true')
-                    document.location.href="{% url 'indice_enigme_autre' 1234 %}".replace(/1234/, id_option.toString());;
+                    document.location.href="{% url 'indice_autre_ouverte' 1234 %}".replace(/1234/, id_option.toString());;
                 }
             });
         </script>

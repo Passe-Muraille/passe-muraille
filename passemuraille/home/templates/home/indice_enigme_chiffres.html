@@ -17,6 +17,7 @@
 <div class="elementor-widget-container">
 <h2 class="elementor-heading-title elementor-size-default">{{ indice_chiffres.enquete.titre }}<br>
 </h2>		</div>
+
 </div>
 </div>
 </div>
@@ -104,8 +105,10 @@
                             <img id='B' loading="lazy" decoding="async" width="453" height="456" src="{% static 'wp-content/uploads/2024/03/B.png' %}" class="attachment-large size-large wp-image-726" alt="">													
                             <div class="to-be-hover-image">
                             </div></div></div></div>
+                            
 </div>
-</div>
+
+</div><a href="{% url "centrale_enquete" 1 %}" style="outline:none!important;"><img src='{% static "wp-content/uploads/2024/03/retour.png" %}' style="height:50px; margin:50px"></img></a>
 </div>
 </div>
 </div>
@@ -126,7 +129,7 @@
     var idElt = this.getAttribute('id');
     console.log(code)
     code += idElt;
-
+    
 
     let longueur = code.length;
     if (longueur == longueur_code){
@@ -197,6 +200,13 @@
         code = "";
     }
     }
+    to_be_overlay_image[0].className += " overlay-image_g";
+    to_be_hover_image[0].className += " hover-image_g";
+    setTimeout(() => {
+        to_be_overlay_image[0].classList.remove('overlay-image_g');
+        to_be_hover_image[0].classList.remove('hover-image_g');
+    }, 500) 
+    
 }
     document.getElementById('2').onclick = function() {
         // element
@@ -274,6 +284,12 @@
                 code = "";
             }
             }
+            to_be_overlay_image[1].className += " overlay-image_g";
+            to_be_hover_image[1].className += " hover-image_g";
+            setTimeout(() => {
+                to_be_overlay_image[1].classList.remove('overlay-image_g');
+                to_be_hover_image[1].classList.remove('hover-image_g');
+            }, 500) 
         }
     document.getElementById('3').onclick = function() {
     // element
@@ -351,6 +367,12 @@
                 code = "";
             }
             }
+            to_be_overlay_image[2].className += " overlay-image_g";
+            to_be_hover_image[2].className += " hover-image_g";
+            setTimeout(() => {
+                to_be_overlay_image[2].classList.remove('overlay-image_g');
+                to_be_hover_image[2].classList.remove('hover-image_g');
+            }, 500) 
     }
     document.getElementById('4').onclick = function() {
         // element
@@ -428,6 +450,12 @@
                 code = "";
             }
             }
+            to_be_overlay_image[3].className += " overlay-image_g";
+            to_be_hover_image[3].className += " hover-image_g";
+            setTimeout(() => {
+                to_be_overlay_image[3].classList.remove('overlay-image_g');
+                to_be_hover_image[3].classList.remove('hover-image_g');
+            }, 500) 
         }
     document.getElementById('5').onclick = function() {
         // element
@@ -503,6 +531,12 @@
                 code = "";
             }
             }
+            to_be_overlay_image[4].className += " overlay-image_g";
+            to_be_hover_image[4].className += " hover-image_g";
+            setTimeout(() => {
+                to_be_overlay_image[4].classList.remove('overlay-image_g');
+                to_be_hover_image[4].classList.remove('hover-image_g');
+            }, 500) 
         }
     document.getElementById('6').onclick = function() {
         // element
@@ -580,6 +614,12 @@
                 code = "";
             }
             }
+            to_be_overlay_image[5].className += " overlay-image_g";
+            to_be_hover_image[5].className += " hover-image_g";
+            setTimeout(() => {
+                to_be_overlay_image[5].classList.remove('overlay-image_g');
+                to_be_hover_image[5].classList.remove('hover-image_g');
+            }, 500) 
         }
 
     document.getElementById('7').onclick = function() {
@@ -658,6 +698,12 @@
                 code = "";
             }
             }
+            to_be_overlay_image[6].className += " overlay-image_g";
+            to_be_hover_image[6].className += " hover-image_g";
+            setTimeout(() => {
+                to_be_overlay_image[6].classList.remove('overlay-image_g');
+                to_be_hover_image[6].classList.remove('hover-image_g');
+            }, 500) 
         }
 
     document.getElementById('8').onclick = function() {
@@ -736,6 +782,12 @@
                 code = "";
             }
             }
+            to_be_overlay_image[7].className += " overlay-image_g";
+            to_be_hover_image[7].className += " hover-image_g";
+            setTimeout(() => {
+                to_be_overlay_image[7].classList.remove('overlay-image_g');
+                to_be_hover_image[7].classList.remove('hover-image_g');
+            }, 500) 
         }
 
     document.getElementById('9').onclick = function() {
@@ -814,6 +866,12 @@
                 code = "";
             }
             }
+            to_be_overlay_image[8].className += " overlay-image_g";
+            to_be_hover_image[8].className += " hover-image_g";
+            setTimeout(() => {
+                to_be_overlay_image[8].classList.remove('overlay-image_g');
+                to_be_hover_image[8].classList.remove('hover-image_g');
+            }, 500) 
         }
 
     document.getElementById('A').onclick = function() {
@@ -892,6 +950,12 @@
                 code = "";
             }
             }
+            to_be_overlay_image[9].className += " overlay-image_g";
+            to_be_hover_image[9].className += " hover-image_g";
+            setTimeout(() => {
+                to_be_overlay_image[9].classList.remove('overlay-image_g');
+                to_be_hover_image[9].classList.remove('hover-image_g');
+            }, 500) 
         }
 
     document.getElementById('0').onclick = function() {
@@ -970,6 +1034,12 @@
                 code = "";
             }
             }
+            to_be_overlay_image[10].className += " overlay-image_g";
+        to_be_hover_image[10].className += " hover-image_g";
+        setTimeout(() => {
+            to_be_overlay_image[10].classList.remove('overlay-image_g');
+            to_be_hover_image[10].classList.remove('hover-image_g');
+        }, 500) 
         }
 
     document.getElementById('B').onclick = function() {
@@ -1048,6 +1118,12 @@
                 code = "";
             }
             }
+            to_be_overlay_image[11].className += " overlay-image_g";
+            to_be_hover_image[11].className += " hover-image_g";
+            setTimeout(() => {
+                to_be_overlay_image[11].classList.remove('overlay-image_g');
+                to_be_hover_image[11].classList.remove('hover-image_g');
+            }, 500) 
         }
 
                                 
