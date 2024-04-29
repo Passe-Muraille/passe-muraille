@@ -45,6 +45,9 @@ def centrale_enquete(request, id_enquete):
 	indices_autre = Indice_autre.objects.filter(enquete=enquete)
 	indices_chiffres_trouves = Indice_chiffres_trouves.objects.filter(equipe=request.user)
 	indices_autre_trouves = Indice_autre_trouves.objects.filter(equipe=request.user)
+	nombre = 0
+	nombre += len(indices_chiffres)
+	nombre += len(indices_autre)
 	#on verra si on veut les trier
 	"""indices = []
 	for indice in indices_chiffres:
@@ -70,7 +73,7 @@ def centrale_enquete(request, id_enquete):
 			'minutes': 0,
 			'seconds': 0
 		}
-	return render(request, 'home/centrale_enquete.html', {'enquete':enquete, 'indices_chiffres':indices_chiffres, "indices_autre":indices_autre, "indices_chiffres_trouves":indices_chiffres_trouves, "indices_autre_trouves":indices_autre_trouves, 'data':data, 'questions':questions})
+	return render(request, 'home/centrale_enquete.html', {'enquete':enquete, 'indices_chiffres':indices_chiffres, "indices_autre":indices_autre, "indices_chiffres_trouves":indices_chiffres_trouves, "indices_autre_trouves":indices_autre_trouves, 'data':data, 'questions':questions, 'nombre':nombre})
 
 @login_required
 def indice_enigme_chiffres(request, id_indice_chiffres):
