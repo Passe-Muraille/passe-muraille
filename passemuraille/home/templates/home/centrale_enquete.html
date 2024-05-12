@@ -165,11 +165,11 @@
     <select name="temoins" id="temoins_liste_unlock" style="border:1px solid #025378; background-color:#FFFFFF90">
         <option value="temoin-0">Liste témoins </option>
         {% for indice in indices_chiffres_trouves %}
-        <option value="chiffres-{{indice.id}}" id="indice_chiffres_trouve{{indice.indice.id}}">{{indice.indice.nom}}</option>
+        <option value="chiffres-{{indice.indice.id}}" id="indice_chiffres_trouve{{indice.indice.id}}">{{indice.indice.nom}}</option>
 
         {% endfor %}
         {% for indice in indices_autre_trouves %}
-        <option value="autre-{{indice.id}}" id="indice_autre_trouve{{indice.indice.id}}">{{indice.indice.nom}}</option>
+        <option value="autre-{{indice.indice.id}}" id="indice_autre_trouve{{indice.indice.id}}">{{indice.indice.nom}}</option>
 
         {% endfor %}
         <script>

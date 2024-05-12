@@ -8,11 +8,11 @@ class EnqueteAdmin(admin.ModelAdmin):
     ordering       = ('ville', 'titre')
 
 class Indice_chiffresAdmin(admin.ModelAdmin):
-    list_display   = ('nom',)
+    list_display   = ('nom', 'id')
     ordering       = ('nom',)
 
 class Indice_autreAdmin(admin.ModelAdmin):
-    list_display   = ('nom',)
+    list_display   = ('nom', 'id')
     ordering       = ('nom',)
 
 class Indice_chiffres_trouvesAdmin(admin.ModelAdmin):
