@@ -6,12 +6,16 @@ from django.contrib.auth.decorators import login_required
 from .forms import LoginForm
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
+from django.views.decorators.cache import never_cache
 
 
 def home(request):
 	return render(request, 'home/home.html')
 
+@never_cache
 def introduction_enquete(request, id_enquete):
+	if request.user.is_authenticated:
+		return redirect('centrale_enquete', id_enquete)
 	error = False
 	if request.method == "POST":
 		form = LoginForm(request.POST)
@@ -36,11 +40,11 @@ def introduction_enquete(request, id_enquete):
 @login_required
 def centrale_enquete(request, id_enquete):
 	enquete = Enquete.objects.get(id=id_enquete)
-	questions_sans_point = enquete.questions.split('?')
+	questions_sans_point = enquete.questions.split('*')
 	questions = []
 	for question in questions_sans_point:
 		if question != " " and question !="":
-			questions.append(question + "?")
+			questions.append(question)
 	indices_chiffres = Indice_chiffres.objects.filter(enquete=enquete)
 	indices_autre = Indice_autre.objects.filter(enquete=enquete)
 	indices_chiffres_trouves = Indice_chiffres_trouves.objects.filter(equipe=request.user)
