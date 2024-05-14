@@ -9,5 +9,6 @@ urlpatterns = [
     path('indice_enigme_autre/<int:id_indice_autre>/', views.indice_enigme_autre, name='indice_enigme_autre'),
     path('indice_chiffres_ouverte/<int:id_indice_chiffres>/', views.indice_chiffres_ouverte, name='indice_chiffres_ouverte'),
     path('indice_autre_ouverte/<int:id_indice_autre>/', views.indice_autre_ouverte, name='indice_autre_ouverte'),
-    path('timer/', views.countdown_timer, name='countdown_timer')
+    path('timer/', views.countdown_timer, name='countdown_timer'),
+    path('logout/<int:id_enquete>/', views.logout_view, name="logout")
 ]

@@ -4,13 +4,17 @@ from django.http import Http404
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from .forms import LoginForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.views.decorators.cache import never_cache
 
 
 def home(request):
 	return render(request, 'home/home.html')
+
+def logout_view(request, id_enquete):
+	logout(request)
+	return redirect('introduction_enquete', id_enquete)
 
 @never_cache
 def introduction_enquete(request, id_enquete):
