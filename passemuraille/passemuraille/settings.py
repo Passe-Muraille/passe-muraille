@@ -156,3 +156,6 @@ GS_BUCKET_NAME = 'bucket-passe-muraille'
 MEDIA_ROOT = "media/"
 UPLOAD_ROOT = 'media/uploads/'
 MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
+
+
+LANGUAGE_CODE = 'fr'
