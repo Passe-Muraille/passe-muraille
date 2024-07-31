@@ -16,12 +16,14 @@ class Indice_autreAdmin(admin.ModelAdmin):
     ordering       = ('nom',)
 
 class Indice_chiffres_trouvesAdmin(admin.ModelAdmin):
-    list_display   = ('equipe', 'indice')
-    ordering       = ('equipe', 'indice')
+    list_display   = ('equipe', 'indice', 'date_decouverte')
+    ordering       = ('equipe', 'indice', 'date_decouverte')
+    list_filter    = ('equipe', 'indice')
 
 class Indice_autre_trouvesAdmin(admin.ModelAdmin):
-    list_display   = ('equipe', 'indice')
-    ordering       = ('equipe', 'indice')
+    list_display   = ('equipe', 'indice', 'date_decouverte')
+    ordering       = ('equipe', 'indice', 'date_decouverte')
+    list_filter    = ('equipe', 'indice')
 
 admin.site.register(Enquete, EnqueteAdmin)
 admin.site.register(Indice_chiffres, Indice_chiffresAdmin)

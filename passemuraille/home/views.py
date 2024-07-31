@@ -9,8 +9,12 @@ from django.contrib import messages
 from django.views.decorators.cache import never_cache
 
 
-def home(request):
-	return render(request, 'home/home.html')
+def garde(request):
+	return redirect('home', "Lyon")
+
+def home(request, ville="Lyon"):
+	enquetes = Enquete.objects.filter(ville=ville)
+	return render(request, 'home/home.html', {'enquetes':enquetes, 'ville':ville})
 
 def logout_view(request, id_enquete):
 	logout(request)

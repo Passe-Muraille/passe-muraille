@@ -27,9 +27,52 @@
 		<div class="elementor-element elementor-element-e143495 e-grid e-con-boxed e-con e-parent" data-id="e143495" data-element_type="container" data-core-v316-plus="true">
 					<div class="e-con-inner">
 				<div class="elementor-element elementor-element-40609cb elementor-widget-mobile__width-initial elementor-widget__width-initial elementor-widget elementor-widget-image" data-id="40609cb" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img decoding="async" width="820" height="639" src="{% static 'wp-content/uploads/2024/03/ville_rennes-1.png' %}" class="attachment-large size-large wp-image-672" alt="">													</div>
+					
+					<style>
+						/* Styles for the image and the menu */
+						.pointed {
+							cursor: pointer;
+						}
+					
+						.menu {
+							
+							display: none;
+							position: absolute;
+							background-color: #faf2e0;
+							border: 1px solid #410505;
+							box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+							z-index: 1000;
+						}
+					
+						.menu-item {
+							text-align:center;
+							width:64px;
+							padding:5px;
+							cursor: pointer;
+							font-size : 8px;
+							color:#410505;
+							font-family:stencil2;
+						
+						}
+					
+						.menu-item:hover {
+							background-color: #f0f0f0;
+						}
+					</style>
+				
+					<div class="elementor-widget-container">
+					{% if ville == 'Rennes' %}	
+					<img id="clickableImage" decoding="async" width="820" height="639" src="{% static 'wp-content/uploads/2024/03/ville_rennes-1.png' %}" class="attachment-large size-large wp-image-672 pointed" alt="">
+					{% elif ville == 'Lyon' %}
+					<img id="clickableImage" decoding="async" width="820" height="639" src="{% static 'wp-content/uploads/2024/03/ville_lyon-1.png' %}" class="attachment-large size-large wp-image-672 pointed" alt="">
+					{% endif %}
 				</div>
+				</div>
+				<div class="menu" id="menu">
+					<div class="menu-item" onclick="menuItemClicked('Lyon')">Lyon</div>
+					<div class="menu-item" onclick="menuItemClicked('Rennes')">Rennes</div>
+				</div>
+				
 				<div class="elementor-element elementor-element-4ee659c elementor-widget elementor-widget-heading" data-id="4ee659c" data-element_type="widget" data-widget_type="heading.default">
 				<div class="elementor-widget-container">
 					
@@ -38,8 +81,15 @@
 					</div>
 				</div>
 				<div class="elementor-element elementor-element-29f3efd elementor-widget elementor-widget-heading" data-id="29f3efd" data-element_type="widget" data-widget_type="heading.default">
+					
+					{% for enquete in enquetes %}
+
 				<div class="elementor-widget-container">
-			<a href="{% url 'introduction_enquete' 2 %}"><h2 class="elementor-heading-title elementor-size-default">Au temps des bonnets rouges</h2></a>		</div>
+				<a href="{% url 'introduction_enquete' enquete.id %}"><h2 class="elementor-heading-title elementor-size-default">{{ enquete.titre }}</h2></a>		
+				</div>
+
+					{% endfor %}
+
 				</div> 
 				<div class="elementor-element elementor-element-2a42325 elementor-widget elementor-widget-image" data-id="2a42325" data-element_type="widget" data-widget_type="image.default">
 				<div class="elementor-widget-container">
@@ -51,329 +101,33 @@
 					</div>
 		</section>
 
-		<!--
-				<section class="elementor-section elementor-top-section elementor-element elementor-element-04720e0 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="04720e0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-							<div class="elementor-background-overlay"></div>
-							<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-dc1e09b" data-id="dc1e09b" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-			<div class="elementor-widget-wrap elementor-element-populated">
-				<div class="elementor-element elementor-element-e2b0ab4 e-grid e-con-boxed e-con e-parent" data-id="e2b0ab4" data-element_type="container" data-core-v316-plus="true">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-e7f83bf elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="e7f83bf" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img decoding="async" width="864" height="880" src="{% static 'wp-content/uploads/2024/03/logo_brun-3.png' %}" class="attachment-large size-large wp-image-677" alt="">													</div>
-				</div>
-				<div class="elementor-element elementor-element-92475a3 elementor-widget elementor-widget-heading" data-id="92475a3" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Nom enquête 1</h2>		</div>
-				</div>
-					</div>
-				</div>
-		<div class="elementor-element elementor-element-88df7e7 e-flex e-con-boxed e-con e-parent" data-id="88df7e7" data-element_type="container" data-core-v316-plus="true">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-c3a8bd4 elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="c3a8bd4" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="1024" height="929" src="{% static 'wp-content/uploads/2024/03/ville_trombone_inclinee.png' %}" class="attachment-large size-large wp-image-695" alt="">													</div>
-				</div>
-					</div>
-				</div>
-				<div class="elementor-element elementor-element-210c0b2 elementor-widget elementor-widget-text-editor" data-id="210c0b2" data-element_type="widget" data-widget_type="text-editor.default">
-				<div class="elementor-widget-container">
-			<style>/*! elementor - v3.20.0 - 13-03-2024 */
-.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>				<p>Date :</p>
-<p>Description :bla</p>
-<p>blablablba</p>
-<p>blablba</p>						</div>
-				</div>
-		<div class="elementor-element elementor-element-f702737 e-grid e-con-boxed e-con e-parent" data-id="f702737" data-element_type="container" data-core-v316-plus="true">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-81ce8a7 elementor-widget elementor-widget-text-editor" data-id="81ce8a7" data-element_type="widget" data-widget_type="text-editor.default">
-				<div class="elementor-widget-container">
-							<div>Brigade en charge:</div>
-<div>Nom</div>
-<div>MDP</div>
-<div>****</div>						</div>
-				</div>
-				<div class="elementor-element elementor-element-c7df9c8 elementor-widget elementor-widget-image" data-id="c7df9c8" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="600" height="589" src="{% static 'wp-content/uploads/2022/05/owp-photos-001.png' %}" class="attachment-large size-large wp-image-379" alt="">													</div>
-				</div>
-					</div>
-				</div>
-				<div class="elementor-element elementor-element-30300a5 elementor-widget elementor-widget-image" data-id="30300a5" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="287" height="341" src="{% static 'wp-content/uploads/2024/03/sceau.png' %}" class="attachment-large size-large wp-image-670" alt="">													</div>
-				</div>
-					</div>
-		</div>
-					</div>
-		</section>
-				<section class="elementor-section elementor-top-section elementor-element elementor-element-f0aad36 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="f0aad36" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-							<div class="elementor-background-overlay"></div>
-							<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-ea0e01c" data-id="ea0e01c" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-			<div class="elementor-widget-wrap elementor-element-populated">
-				<div class="elementor-element elementor-element-32808ca e-grid e-con-boxed e-con e-parent" data-id="32808ca" data-element_type="container" data-core-v316-plus="true">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-44b9881 elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="44b9881" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img decoding="async" width="864" height="880" src="{% static 'wp-content/uploads/2024/03/logo_brun-3.png' %}" class="attachment-large size-large wp-image-677" alt="">													</div>
-				</div>
-				<div class="elementor-element elementor-element-3854a56 elementor-widget elementor-widget-heading" data-id="3854a56" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Nom enquête 1<br>
-</h2>		</div>
-				</div>
-					</div>
-				</div>
-		<div class="elementor-element elementor-element-27a096d e-grid e-con-boxed e-con e-parent" data-id="27a096d" data-element_type="container" data-core-v316-plus="true">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-1f021fd elementor-widget elementor-widget-text-editor" data-id="1f021fd" data-element_type="widget" data-widget_type="text-editor.default">
-				<div class="elementor-widget-container">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>						</div>
-				</div>
-				<div class="elementor-element elementor-element-8a3cc10 elementor-widget elementor-widget-text-editor" data-id="8a3cc10" data-element_type="widget" data-widget_type="text-editor.default">
-				<div class="elementor-widget-container">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>						</div>
-				</div>
-		<div class="elementor-element elementor-element-a38ea4c e-flex e-con-boxed e-con e-child" data-id="a38ea4c" data-element_type="container">
-					<div class="e-con-inner">
-					</div>
-				</div>
-					</div>
-				</div>
-				<div class="elementor-element elementor-element-c91a07d elementor-mobile-align-left elementor-widget elementor-widget-button" data-id="c91a07d" data-element_type="widget" data-widget_type="button.default">
-				<div class="elementor-widget-container">
-					<div class="elementor-button-wrapper">
-			<a class="elementor-button elementor-button-link elementor-size-sm" href="#">
-						<span class="elementor-button-content-wrapper">
-						<span class="elementor-button-icon elementor-align-icon-left">
-				<svg aria-hidden="true" class="e-font-icon-svg e-fas-phone-volume" viewbox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M97.333 506.966c-129.874-129.874-129.681-340.252 0-469.933 5.698-5.698 14.527-6.632 21.263-2.422l64.817 40.513a17.187 17.187 0 0 1 6.849 20.958l-32.408 81.021a17.188 17.188 0 0 1-17.669 10.719l-55.81-5.58c-21.051 58.261-20.612 122.471 0 179.515l55.811-5.581a17.188 17.188 0 0 1 17.669 10.719l32.408 81.022a17.188 17.188 0 0 1-6.849 20.958l-64.817 40.513a17.19 17.19 0 0 1-21.264-2.422zM247.126 95.473c11.832 20.047 11.832 45.008 0 65.055-3.95 6.693-13.108 7.959-18.718 2.581l-5.975-5.726c-3.911-3.748-4.793-9.622-2.261-14.41a32.063 32.063 0 0 0 0-29.945c-2.533-4.788-1.65-10.662 2.261-14.41l5.975-5.726c5.61-5.378 14.768-4.112 18.718 2.581zm91.787-91.187c60.14 71.604 60.092 175.882 0 247.428-4.474 5.327-12.53 5.746-17.552.933l-5.798-5.557c-4.56-4.371-4.977-11.529-.93-16.379 49.687-59.538 49.646-145.933 0-205.422-4.047-4.85-3.631-12.008.93-16.379l5.798-5.557c5.022-4.813 13.078-4.394 17.552.933zm-45.972 44.941c36.05 46.322 36.108 111.149 0 157.546-4.39 5.641-12.697 6.251-17.856 1.304l-5.818-5.579c-4.4-4.219-4.998-11.095-1.285-15.931 26.536-34.564 26.534-82.572 0-117.134-3.713-4.836-3.115-11.711 1.285-15.931l5.818-5.579c5.159-4.947 13.466-4.337 17.856 1.304z"></path></svg>			</span>
-						<span class="elementor-button-text">Passe-Muraille</span>
-		</span>
-					</a>
-		</div>
-				</div>
-				</div>
-				<div class="elementor-element elementor-element-4eef081 elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="4eef081" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="737" height="400" src="{% static 'wp-content/uploads/2024/03/Sans-titre1.png' %}" class="attachment-large size-large wp-image-690" alt="">													</div>
-				</div>
-					</div>
-		</div>
-					</div>
-		</section>
-				<section class="elementor-section elementor-top-section elementor-element elementor-element-0aa1ca7 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="0aa1ca7" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-							<div class="elementor-background-overlay"></div>
-							<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-7149bb1" data-id="7149bb1" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-			<div class="elementor-widget-wrap elementor-element-populated">
-				<div class="elementor-element elementor-element-07bbef5 e-grid e-con-boxed e-con e-parent" data-id="07bbef5" data-element_type="container" data-core-v316-plus="true">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-1fa4a94 elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="1fa4a94" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img decoding="async" width="864" height="880" src="{% static 'wp-content/uploads/2024/03/logo_brun-3.png' %}" class="attachment-large size-large wp-image-677" alt="">													</div>
-				</div>
-				<div class="elementor-element elementor-element-b1498cf elementor-widget elementor-widget-heading" data-id="b1498cf" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Nom enquête 1<br>
-</h2>		</div>
-				</div>
-					</div>
-				</div>
-		<div class="elementor-element elementor-element-8808cff e-flex e-con-boxed e-con e-parent" data-id="8808cff" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-core-v316-plus="true">
-					<div class="e-con-inner">
-		<div class="elementor-element elementor-element-3618408 e-flex e-con-boxed e-con e-child" data-id="3618408" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-2ced7da elementor-widget elementor-widget-heading" data-id="2ced7da" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Nom</h2>		</div>
-				</div>
-					</div>
-				</div>
-		<div class="elementor-element elementor-element-949014e e-grid e-con-boxed e-con e-child" data-id="949014e" data-element_type="container">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-896a03c elementor-widget-mobile__width-inherit elementor-widget elementor-widget-image" data-id="896a03c" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="307" height="307" src="{% static 'wp-content/uploads/2024/03/1.png' %}" class="attachment-large size-large wp-image-696" alt="">													</div>
-				</div>
-				<div class="elementor-element elementor-element-87d6f34 elementor-widget elementor-widget-image" data-id="87d6f34" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="528" height="529" src="{% static 'wp-content/uploads/2024/03/2.png' %}" class="attachment-large size-large wp-image-697" alt="">													</div>
-				</div>
-				<div class="elementor-element elementor-element-d1292af elementor-widget elementor-widget-image" data-id="d1292af" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="526" height="526" src="{% static 'wp-content/uploads/2024/03/3.png' %}" class="attachment-large size-large wp-image-698" alt="">													</div>
-				</div>
-				<div class="elementor-element elementor-element-eeb0e09 elementor-widget elementor-widget-image" data-id="eeb0e09" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="524" height="525" src="{% static 'wp-content/uploads/2024/03/4.png' %}" class="attachment-large size-large wp-image-699" alt="">													</div>
-				</div>
-				<div class="elementor-element elementor-element-5b8af0c elementor-widget elementor-widget-image" data-id="5b8af0c" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="524" height="525" src="{% static 'wp-content/uploads/2024/03/5.png' %}" class="attachment-large size-large wp-image-700" alt="">													</div>
-				</div>
-				<div class="elementor-element elementor-element-fc07e74 elementor-widget elementor-widget-image" data-id="fc07e74" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="644" height="648" src="{% static 'wp-content/uploads/2024/03/6.png' %}" class="attachment-large size-large wp-image-701" alt="">													</div>
-				</div>
-				<div class="elementor-element elementor-element-eca85fc elementor-widget elementor-widget-image" data-id="eca85fc" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="406" height="404" src="{% static 'wp-content/uploads/2024/03/7.png' %}" class="attachment-large size-large wp-image-722" alt="">													</div>
-				</div>
-				<div class="elementor-element elementor-element-799db55 elementor-widget elementor-widget-image" data-id="799db55" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="403" height="405" src="{% static 'wp-content/uploads/2024/03/8.png' %}" class="attachment-large size-large wp-image-723" alt="">													</div>
-				</div>
-				<div class="elementor-element elementor-element-994e56c elementor-widget elementor-widget-image" data-id="994e56c" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="453" height="456" src="{% static 'wp-content/uploads/2024/03/9.png' %}" class="attachment-large size-large wp-image-724" alt="">													</div>
-				</div>
-				<div class="elementor-element elementor-element-dd5a88d elementor-widget elementor-widget-image" data-id="dd5a88d" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="456" height="455" src="{% static 'wp-content/uploads/2024/03/A.png' %}" class="attachment-large size-large wp-image-725" alt="">													</div>
-				</div>
-				<div class="elementor-element elementor-element-02ff153 elementor-widget elementor-widget-image" data-id="02ff153" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="452" height="458" src="{% static 'wp-content/uploads/2024/03/0.png' %}" class="attachment-large size-large wp-image-721" alt="">													</div>
-				</div>
-				<div class="elementor-element elementor-element-7a06c69 elementor-widget elementor-widget-image" data-id="7a06c69" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img loading="lazy" decoding="async" width="453" height="456" src="{% static 'wp-content/uploads/2024/03/B.png' %}" class="attachment-large size-large wp-image-726" alt="">													</div>
-				</div>
-					</div>
-				</div>
-					</div>
-				</div>
-					</div>
-		</div>
-					</div>
-		</section>
-				<section class="elementor-section elementor-top-section elementor-element elementor-element-507f1f1 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="507f1f1" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-							<div class="elementor-background-overlay"></div>
-							<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-962118b" data-id="962118b" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-			<div class="elementor-widget-wrap elementor-element-populated">
-				<div class="elementor-element elementor-element-cbd4bf3 e-grid e-con-boxed e-con e-parent" data-id="cbd4bf3" data-element_type="container" data-core-v316-plus="true">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-9629309 elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="9629309" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img decoding="async" width="864" height="880" src="{% static 'wp-content/uploads/2024/03/logo_brun-3.png' %}" class="attachment-large size-large wp-image-677" alt="">													</div>
-				</div>
-				<div class="elementor-element elementor-element-6726386 elementor-widget elementor-widget-heading" data-id="6726386" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Nom enquête 1<br>
-</h2>		</div>
-				</div>
-					</div>
-				</div>
-		<div class="elementor-element elementor-element-03a3eef e-flex e-con-boxed e-con e-parent" data-id="03a3eef" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-core-v316-plus="true">
-					<div class="e-con-inner">
-		<div class="elementor-element elementor-element-6660cd8 e-flex e-con-boxed e-con e-child" data-id="6660cd8" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-ee2ba6e elementor-widget elementor-widget-heading" data-id="ee2ba6e" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Nom</h2>		</div>
-				</div>
-					</div>
-				</div>
-				<div class="elementor-element elementor-element-d61d52d elementor-widget-mobile__width-initial elementor-widget elementor-widget-heading" data-id="d61d52d" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Code? - faire un form</h2>		</div>
-				</div>
-					</div>
-				</div>
-					</div>
-		</div>
-					</div>
-		</section>
-				<section class="elementor-section elementor-top-section elementor-element elementor-element-acc1022 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="acc1022" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-							<div class="elementor-background-overlay"></div>
-							<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-56439f4" data-id="56439f4" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-			<div class="elementor-widget-wrap elementor-element-populated">
-				<div class="elementor-element elementor-element-6418273 e-grid e-con-boxed e-con e-parent" data-id="6418273" data-element_type="container" data-core-v316-plus="true">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-2d02277 elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="2d02277" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img decoding="async" width="864" height="880" src="{% static 'wp-content/uploads/2024/03/logo_brun-3.png' %}" class="attachment-large size-large wp-image-677" alt="">													</div>
-				</div>
-				<div class="elementor-element elementor-element-6452345 elementor-widget elementor-widget-heading" data-id="6452345" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Nom enquête 1<br>
-</h2>		</div>
-				</div>
-					</div>
-				</div>
-					</div>
-		</div>
-					</div>
-		</section>
-				<section class="elementor-section elementor-top-section elementor-element elementor-element-8d0f04f elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="8d0f04f" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-							<div class="elementor-background-overlay"></div>
-							<div class="elementor-container elementor-column-gap-default">
-					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-83f1694" data-id="83f1694" data-element_type="column" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-			<div class="elementor-widget-wrap elementor-element-populated">
-				<div class="elementor-element elementor-element-813468b e-con-full e-flex e-con e-parent" data-id="813468b" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-core-v316-plus="true">
-				<div class="elementor-element elementor-element-8c6d348 elementor-widget elementor-widget-text-editor" data-id="8c6d348" data-element_type="widget" data-widget_type="text-editor.default">
-				<div class="elementor-widget-container">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>						</div>
-				</div>
-		<div class="elementor-element elementor-element-76aa61c e-flex e-con-boxed e-con e-child" data-id="76aa61c" data-element_type="container">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-148ae22 elementor-widget elementor-widget-text-editor" data-id="148ae22" data-element_type="widget" data-widget_type="text-editor.default">
-				<div class="elementor-widget-container">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>						</div>
-				</div>
-					</div>
-				</div>
-				</div>
-		<div class="elementor-element elementor-element-7791cfb e-grid e-con-boxed e-con e-parent" data-id="7791cfb" data-element_type="container" data-core-v316-plus="true">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-4f17273 elementor-widget-mobile__width-initial elementor-widget elementor-widget-image" data-id="4f17273" data-element_type="widget" data-widget_type="image.default">
-				<div class="elementor-widget-container">
-													<img decoding="async" width="864" height="880" src="{% static 'wp-content/uploads/2024/03/logo_brun-3.png' %}" class="attachment-large size-large wp-image-677" alt="">													</div>
-				</div>
-				<div class="elementor-element elementor-element-7870e1e elementor-widget elementor-widget-heading" data-id="7870e1e" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Nom enquête 1<br>
-</h2>		</div>
-				</div>
-					</div>
-				</div>
-		<div class="elementor-element elementor-element-c21b4d3 e-con-full e-flex e-con e-parent" data-id="c21b4d3" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-core-v316-plus="true">
-				<div class="elementor-element elementor-element-5a1ea25 elementor-widget elementor-widget-text-editor" data-id="5a1ea25" data-element_type="widget" data-widget_type="text-editor.default">
-				<div class="elementor-widget-container">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>						</div>
-				</div>
-		<div class="elementor-element elementor-element-3bf983a e-flex e-con-boxed e-con e-child" data-id="3bf983a" data-element_type="container">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-2924838 elementor-widget elementor-widget-text-editor" data-id="2924838" data-element_type="widget" data-widget_type="text-editor.default">
-				<div class="elementor-widget-container">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>						</div>
-				</div>
-					</div>
-				</div>
-				</div>
-					</div>
-		</div>
-					</div>
-		</section>
-		<div class="elementor-element elementor-element-c96f6ee e-flex e-con-boxed e-con e-parent" data-id="c96f6ee" data-element_type="container" data-core-v316-plus="true">
-					<div class="e-con-inner">
-					</div>
-				</div>
-		<div class="elementor-element elementor-element-28ad408 e-flex e-con-boxed e-con e-parent" data-id="28ad408" data-element_type="container" data-core-v316-plus="true">
-					<div class="e-con-inner">
-				<div class="elementor-element elementor-element-c7a281e elementor-widget elementor-widget-heading" data-id="c7a281e" data-element_type="widget" data-widget_type="heading.default">
-				<div class="elementor-widget-container">
-			<h2 class="elementor-heading-title elementor-size-default">Ajoutez votre titre ici</h2>		</div>
-				</div>
-					</div>
-				</div>
-				</div>
-	
 
-	
--->
+
+
+
+
+
+
+<script>
+	const image = document.getElementById('clickableImage');
+	const menu = document.getElementById('menu');
+
+	image.addEventListener('click', (event) => {
+		// Display the menu at the position of the mouse click
+		menu.style.display = 'block';
+		menu.style.left = `16px`;
+		menu.style.top = `70px`;
+	});
+
+	document.addEventListener('click', (event) => {
+		if (!menu.contains(event.target) && event.target !== image) {
+			menu.style.display = 'none';
+		}
+	});
+
+	function menuItemClicked(option) {
+		document.location.href="{% url 'home' 1234 %}".replace(/1234/, option);
+		menu.style.display = 'none';
+	}
+</script>
 {% endblock %}
