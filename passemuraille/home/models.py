@@ -79,12 +79,19 @@ class Event(models.Model):
 
 
 class Indices_trouves(models.Model):
+	class Meta:
+		verbose_name = 'Indice trouvé'
+		verbose_name_plural = 'Indices trouvés'
 	nom = models.CharField(max_length=255, verbose_name='Nom')
 	equipe = models.CharField(max_length=255, verbose_name='Equipe')
 	date_decouverte = models.DateTimeField(verbose_name="Date de découverte")
 
 
 class Messagerie(models.Model):
+	class Meta:
+		verbose_name = 'Messagerie'
+		verbose_name_plural = 'Messagerie'
 	equipe = models.CharField(max_length=255, verbose_name='Equipe')
 	message = models.TextField()
-	image = models.ImageField(blank=True, null=True)
+	image = models.ImageField(blank=True, null=True, upload_to='images/')
+	date_envoie = models.DateTimeField(verbose_name="Date envoie", null=True)

@@ -2,23 +2,38 @@
 
 {% block content %}
 {% load static %}
+<style>
+    .messagerie-form {
+        min-height:120px;
+        height :120px;
+        background:#faf2e0;
+    }
+</style>
 <section style="min-height:700px" class="elementor-section elementor-top-section elementor-element elementor-element-8d0f04f elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="8d0f04f" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-    <div class="elementor-widget-container">
-        <form method="post" action="{% url 'messagerie' %}">
+    <div class="elementor-element elementor-element-3854a56 elementor-widget elementor-widget-heading" data-id="3854a56" data-element_type="widget" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+        <h2 class="elementor-heading-title elementor-size-default">Messagerie<br>
+        </h2>		</div>
+        </div>
+    
+    <div class="elementor-widget-container" style='padding:5px'>
+        <p>N'hésitez pas à utiliser le formulaire ci-dessous pour toute question ou pour répondre au défis !</p>
+        <form method="post" action="{% url 'messagerie' id_enquete %}" enctype="multipart/form-data">
             {% csrf_token %}
             <div>
                 <p><span style="font-family:Stencil" class='entete'>Message</span>
                 <br>
-                {{form.username}}
+                {{form.message}}
                 </p>
             </div>
     
             <div>
                 <p><span style="font-family:Stencil" class='entete'>Image</span>
                 <br>
-                {{form.password}}
+                {{form.image}}
                 </p>
-            </div>
+                
+                <input type="submit" value="Envoyer" style="background-color:#430505; font-family:Gabriola2"/>
         </form>
     </div>
 
@@ -27,7 +42,7 @@
     
     
     
-    <a href="{% url "centrale_enquete" indice.enquete.id %}" style="outline:none!important;"><img src='{% static "wp-content/uploads/2024/03/retour.png" %}' style="height:50px; margin:50px"></img></a>
+    <a href="{% url "centrale_enquete" id_enquete %}" style="outline:none!important;"><img src='{% static "wp-content/uploads/2024/03/retour.png" %}' style="height:50px; margin-left:20px; margin-top:60px"></img></a>
 </section>
 
     {% endblock %}

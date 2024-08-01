@@ -172,18 +172,24 @@ def countdown_timer(request):
         }
     return render(request, 'home/myapp.html', {'data': data})
 
-def messagerie_view(request):
+def messagerie_view(request, id_enquete):
 	if request.method == "POST":
-		form = MessagerieForm(request.POST)
+		form = MessagerieForm(request.POST, request.FILES)
 		if form.is_valid():
+			print(request.FILES.keys())
+			print(request.POST.keys())
 			message = form.cleaned_data["message"]
 			image = form.cleaned_data["image"]
+			print(image)
 			newMessage = Messagerie()
 			newMessage.equipe = request.user
 			newMessage.message = message
 			newMessage.image = image
+			newMessage.date_envoie = datetime.now()
 			newMessage.save()
+			messages.success(request, "Message envoyé")
+			return redirect('centrale_enquete', id_enquete)
 	else:
 		form = MessagerieForm()
-	return render(request, 'home/messagerie.html', {'form':form})
+	return render(request, 'home/messagerie.html', {'form':form, "id_enquete":id_enquete})
 	

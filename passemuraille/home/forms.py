@@ -5,5 +5,5 @@ class LoginForm(forms.Form):
     password = forms.CharField(label="", widget=forms.PasswordInput(attrs={'placeholder':'Entrez votre mot de passe', 'class': "form-control"}))
 
 class MessagerieForm(forms.Form):
-    message = forms.CharField(widget=forms.Textarea)
-    image = forms.ImageField()
+    message = forms.CharField(label="", widget=forms.Textarea(attrs={'placeholder':'Entrez votre message', 'class': "messagerie-form",}))
+    image = forms.ImageField(required=False)
