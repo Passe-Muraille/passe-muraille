@@ -52,8 +52,8 @@ class Indice_autre(models.Model):
 
 class Indice_chiffres_trouves(models.Model):
 	class Meta:
-		verbose_name = 'Indice à chiffres trouvés'
-		verbose_name_plural = 'Indices à chiffres trouvés'
+		verbose_name = 'Z - Indice à chiffres trouvés'
+		verbose_name_plural = 'Z - Indices à chiffres trouvés'
 
 	equipe = models.CharField(max_length=255, verbose_name='Equipe') #connu grâce à la connection
 	indice = models.ForeignKey(Indice_chiffres, on_delete=models.CASCADE)
@@ -62,8 +62,8 @@ class Indice_chiffres_trouves(models.Model):
 
 class Indice_autre_trouves(models.Model):
 	class Meta:
-		verbose_name = 'Indice format libre trouvés'
-		verbose_name_plural = 'Indices format libre trouvés'
+		verbose_name = 'Z - Indice format libre trouvés'
+		verbose_name_plural = 'Z - Indices format libre trouvés'
 		
 	equipe = models.CharField(max_length=255, verbose_name='Equipe')
 	indice = models.ForeignKey(Indice_autre, on_delete=models.CASCADE)
