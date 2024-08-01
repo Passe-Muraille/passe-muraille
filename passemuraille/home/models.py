@@ -80,8 +80,8 @@ class Event(models.Model):
 
 class Indices_trouves(models.Model):
 	class Meta:
-		verbose_name = 'Indice trouvé'
-		verbose_name_plural = 'Indices trouvés'
+		verbose_name = 'A - Indice trouvé'
+		verbose_name_plural = 'A - Indices trouvés'
 	nom = models.CharField(max_length=255, verbose_name='Nom')
 	equipe = models.CharField(max_length=255, verbose_name='Equipe')
 	date_decouverte = models.DateTimeField(verbose_name="Date de découverte")
