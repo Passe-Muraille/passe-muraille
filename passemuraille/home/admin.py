@@ -15,7 +15,7 @@ class Indice_autreAdmin(admin.ModelAdmin):
     list_display   = ('nom', 'id')
     ordering       = ('nom',)
 
-"""class Indice_chiffres_trouvesAdmin(admin.ModelAdmin):
+class Indice_chiffres_trouvesAdmin(admin.ModelAdmin):
     list_display   = ('equipe', 'indice', 'date_decouverte')
     ordering       = ('equipe', 'indice', 'date_decouverte')
     list_filter    = ('equipe', 'indice')
@@ -23,7 +23,7 @@ class Indice_autreAdmin(admin.ModelAdmin):
 class Indice_autre_trouvesAdmin(admin.ModelAdmin):
     list_display   = ('equipe', 'indice', 'date_decouverte')
     ordering       = ('equipe', 'indice', 'date_decouverte')
-    list_filter    = ('equipe', 'indice')"""
+    list_filter    = ('equipe', 'indice')
 
 class Indice_trouvesAdmin(admin.ModelAdmin):
     list_display   = ('equipe', 'nom', 'date_decouverte')
@@ -38,8 +38,8 @@ class MessagerieAdmin(admin.ModelAdmin):
 admin.site.register(Enquete, EnqueteAdmin)
 admin.site.register(Indice_chiffres, Indice_chiffresAdmin)
 admin.site.register(Indice_autre, Indice_autreAdmin)
-#admin.site.register(Indice_chiffres_trouves, Indice_chiffres_trouvesAdmin)
-#admin.site.register(Indice_autre_trouves, Indice_autre_trouvesAdmin)
+admin.site.register(Indice_chiffres_trouves, Indice_chiffres_trouvesAdmin)
+admin.site.register(Indice_autre_trouves, Indice_autre_trouvesAdmin)
 admin.site.register(Indices_trouves, Indice_trouvesAdmin)
 admin.site.register(Messagerie, MessagerieAdmin)
 admin.site.register(Event)
