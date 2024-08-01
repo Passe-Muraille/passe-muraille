@@ -77,11 +77,14 @@ class Event(models.Model):
 	name = models.CharField(max_length=255)
 	event_date = models.DateTimeField()
 
-"""
+
 class Indices_trouves(models.Model):
-	nom = models.CharField(max_length=35, verbose_name='Nom')
-	enquete = models.ForeignKey(Enquete, on_delete=models.CASCADE)
-	contenu_textuel = models.TextField(verbose_name='Contenu textuel', null=True, blank=True)
-	contenu_image = models.ImageField(verbose_name='Image (ou bien unique, ou bien qui sera à la suite du texte)', null=True, blank=True)
-	contenu_audio = models.FileField(verbose_name='Audio', null=True, blank=True)
-	contenu_video = models.FileField(verbose_name='Vidéo', null=True, blank=True) """
+	nom = models.CharField(max_length=255, verbose_name='Nom')
+	equipe = models.CharField(max_length=255, verbose_name='Equipe')
+	date_decouverte = models.DateTimeField(verbose_name="Date de découverte")
+
+
+class Messagerie(models.Model):
+	equipe = models.CharField(max_length=255, verbose_name='Equipe')
+	message = models.TextField()
+	image = models.ImageField(blank=True, null=True)

@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
-from .models import Enquete, Indice_chiffres, Indice_autre,Indice_chiffres_trouves, Indice_autre_trouves
+from .models import Enquete, Indice_chiffres, Indice_autre,Indice_chiffres_trouves, Indice_autre_trouves, Indices_trouves, Messagerie
 from django.http import Http404
 from datetime import datetime
 from django.contrib.auth.decorators import login_required
-from .forms import LoginForm
+from .forms import LoginForm, MessagerieForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.views.decorators.cache import never_cache
@@ -110,6 +110,14 @@ def indice_chiffres_ouverte(request, id_indice_chiffres):
 		newIndice.indice = Indice_chiffres.objects.get(id=id_indice_chiffres)
 		newIndice.date_decouverte = datetime.now()
 		newIndice.save()
+
+		#On ajoute également l'indice à la partie des indices trouvés en liste unique
+		logIndice = Indices_trouves()
+		logIndice.equipe = request.user
+		logIndice.nom = Indice_chiffres.objects.get(id=id_indice_chiffres).nom
+		logIndice.date_decouverte = datetime.now()
+		logIndice.save()
+
 	indice = Indice_chiffres.objects.get(id=id_indice_chiffres)
 	return render(request, 'home/indice_chiffres_ouverte.html', {'id_indice_chiffres':id_indice_chiffres, 'indice':indice})
 
@@ -126,6 +134,13 @@ def indice_autre_ouverte(request, id_indice_autre):
 		newIndice.indice = Indice_autre.objects.get(id=id_indice_autre)
 		newIndice.date_decouverte = datetime.now()
 		newIndice.save()
+
+		#On ajoute également l'indice à la partie des indices trouvés en liste unique
+		logIndice = Indices_trouves()
+		logIndice.equipe = request.user
+		logIndice.nom = Indice_autre.objects.get(id=id_indice_autre).nom
+		logIndice.date_decouverte = datetime.now()
+		logIndice.save()
 	indice = Indice_autre.objects.get(id=id_indice_autre)
 	return render(request, 'home/indice_autre_ouverte.html', {'id_indice_autre':id_indice_autre, 'indice':indice})
 
@@ -156,3 +171,19 @@ def countdown_timer(request):
             'seconds': 0
         }
     return render(request, 'home/myapp.html', {'data': data})
+
+def messagerie_view(request):
+	if request.method == "POST":
+		form = MessagerieForm(request.POST)
+		if form.is_valid():
+			message = form.cleaned_data["message"]
+			image = form.cleaned_data["image"]
+			newMessage = Messagerie()
+			newMessage.equipe = request.user
+			newMessage.message = message
+			newMessage.image = image
+			newMessage.save()
+	else:
+		form = MessagerieForm()
+	return render(request, 'home/messagerie.html', {'form':form})
+	

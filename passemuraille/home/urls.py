@@ -11,5 +11,6 @@ urlpatterns = [
     path('indice_chiffres_ouverte/<int:id_indice_chiffres>/', views.indice_chiffres_ouverte, name='indice_chiffres_ouverte'),
     path('indice_autre_ouverte/<int:id_indice_autre>/', views.indice_autre_ouverte, name='indice_autre_ouverte'),
     path('timer/', views.countdown_timer, name='countdown_timer'),
-    path('logout/<int:id_enquete>/', views.logout_view, name="logout")
+    path('logout/<int:id_enquete>/', views.logout_view, name="logout"),
+    path('messagerie/', views.messagerie_view, name='messagerie'),
 ]

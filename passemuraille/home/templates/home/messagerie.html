@@ -3,9 +3,8 @@
 {% block content %}
 {% load static %}
 <section style="min-height:700px" class="elementor-section elementor-top-section elementor-element elementor-element-8d0f04f elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="8d0f04f" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
-    
     <div class="elementor-widget-container">
-        <form method="post" action="{% url 'introduction_enquete' enquete.id %}">
+        <form method="post" action="{% url 'messagerie' %}">
             {% csrf_token %}
             <div>
                 <p><span style="font-family:Stencil" class='entete'>Message</span>
@@ -22,10 +21,7 @@
             </div>
         </form>
     </div>
-    
 
-    
-    
     
     
     
