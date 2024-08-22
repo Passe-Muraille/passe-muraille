@@ -17,7 +17,7 @@
         </div>
     
     <div class="elementor-widget-container" style='padding:5px'>
-        <p>N'hésitez pas à utiliser le formulaire ci-dessous pour toute question ou pour répondre au défis !</p>
+        <p>Pour valider un challenge, envoyez-moi une photo avec le numéro associé (de 1 à 10) en message.</p>
         <form method="post" action="{% url 'messagerie' id_enquete %}" enctype="multipart/form-data">
             {% csrf_token %}
             <div>
