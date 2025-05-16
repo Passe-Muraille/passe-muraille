@@ -123,7 +123,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 import dj_database_url
-DATABASE_URL = os.getenv("DATABASE_URL")
+DATABASE_URL = postgresql://postgres:caeE1aGG2B5gg3DFf3g2e613CdF1352a@viaduct.proxy.rlwy.net:41784/railway
 
 DATABASES = {
     "default": {
