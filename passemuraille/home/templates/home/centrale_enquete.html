@@ -52,11 +52,11 @@
     <span style="color:#430505; font-family:'Century Schoolbook'; font-style:normal; font-size:9px; font-weight:500">
     <select name="temoins" id="temoins_liste" style="border:1px solid #025378; background-color:#FFFFFF90">
         <option value="temoin-0">Liste témoins </option>
-        {% for indice in indices_chiffres %}
-        <option value="chiffres-{{indice.id}}" id="indice_chiffres{{indice.id}}">{{indice.nom}}</option>
-        
+        {% for indice in indices_chiffres_restants %}
+        <option value="chiffres-{{indice.id}}" id="indice_chiffres{{indice.id}}">{{indice.nom}}</option>       
         {% endfor %}
-        {% for indice in indices_autre %}
+
+        {% for indice in indices_autre_restants %}
         <option value="autre-{{indice.id}}" id="indices_autre{{indice.id}}">{{indice.nom}}</option>
         {% endfor %}
         <script>
@@ -215,11 +215,19 @@
     {% endfor %}
 </ul>
 
-<a href="{% url 'logout' enquete.id %}" style="outline:none!important;"><img src='{% static "wp-content/uploads/2024/03/deconnexion.png" %}' style="height:50px; margin:30px"></img></a>
+<div class="wrapper">
+  <div><a href="{% url 'logout' enquete.id %}" style="outline:none!important;"><img src='{% static "wp-content/uploads/2024/03/deconnexion.png" %}' style="height:50px; margin:30px"></img></a></div>
+  <div></div>
+  <div><a href="https://www.google.com/search?client=firefox-b-d&sca_esv=bf7843588f50460d&sxsrf=AE3TifOaLXSx0tXLhRe7ADyMgATGQK17Ew:1759227161910&si=AMgyJEtREmoPL4P1I5IDCfuA8gybfVI2d5Uj7QMwYCZHKDZ-E4CFmoLnaJYewGLos4WxFnBYUX6hgQwg4oEePsH4f7lDfDDtKhWKnJnXmALlE5UxPCaE-WzJnHXRskbDSC4Hg0TiA9SV&q=Passe-Muraille+Avis&sa=X&ved=2ahUKEwjqnMLwn4CQAxUgTKQEHUF7K84Q0bkNegQIORAD&biw=1075&bih=560&dpr=2.86" style="outline:none!important;"><img src='{% static "wp-content/uploads/2024/03/sceau_avis_transparent.png" %}' style="height:50px; margin:30px; text-align:right"></img></a></div>
+</div>
+<style>.wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+}</style>
 
 <br>
                            
-</div>
+
 
 </section>
 

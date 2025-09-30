@@ -21,19 +21,19 @@
         <form method="post" action="{% url 'messagerie' id_enquete %}" enctype="multipart/form-data">
             {% csrf_token %}
             <div>
-                <p><span style="font-family:Stencil" class='entete'>Message</span>
-                <br>
-                {{form.message}}
-                </p>
-            </div>
-    
-            <div>
                 <p><span style="font-family:Stencil" class='entete'>Image</span>
                 <br>
                 {{form.image}}
                 </p>
                 
-                <input type="submit" value="Envoyer" style="background-color:#430505; font-family:Gabriola2"/>
+            </div>
+            <div>
+                <p><span style="font-family:Stencil" class='entete'>Message</span>
+                <br>
+                {{form.message}}
+                </p>
+            </div>
+            <input style="height:50px; margin:0px" type="image" src='{% static "wp-content/uploads/2024/03/sceau_envoyer_transparent.png" %}' ></input>
         </form>
     </div>
 
