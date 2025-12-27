@@ -26,7 +26,9 @@
                 <p class="entete">{{ indice.nom }}</p>
                 <p>{{ indice.contenu_textuel|escape|linebreaks }}</p>
                 {% if indice.contenu_image %}	
-                <img src="{{indice.contenu_image.url}}"></img>
+                <div style="text-align:center;">
+                    <img src="{{indice.contenu_image.url}}"></img>
+                </div>
                 {% endif %}							</div>
             </div>
             

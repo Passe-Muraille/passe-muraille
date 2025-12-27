@@ -26,8 +26,10 @@
             <div class="elementor-widget-container">
                 <p class="entete">{{ indice.nom }}</p>
                 <p>{{ indice.contenu_textuel|escape|linebreaks }}</p>
-                {% if indice.contenu_image %}	
-                <img src="{{indice.contenu_image.url}}"></img>
+                {% if indice.contenu_image %}
+                <div style="text-align:center;">
+                    <img src="{{ indice.contenu_image.url }}">
+                </div>	
                 {% endif %}			
             </div>
     </div>

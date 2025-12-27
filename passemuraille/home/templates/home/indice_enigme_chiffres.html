@@ -22,6 +22,7 @@
 </div>
 </div>
 <div class="elementor-element elementor-element-8808cff e-flex e-con-boxed e-con e-parent" data-id="8808cff" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}" data-core-v316-plus="true">
+
 <div class="e-con-inner">
 <div class="elementor-element elementor-element-3618408 e-flex e-con-boxed e-con e-child" data-id="3618408" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
 <div class="e-con-inner">
@@ -38,6 +39,9 @@ display: table-cell;">{{indice_chiffres.nom}}</h2>		</div>
 </div>
 </div>
 </div>
+
+
+
 <div class="elementor-element elementor-element-949014e e-grid e-con-boxed e-con e-child" data-id="949014e" data-element_type="container">
 <div class="e-con-inner">
 <div class="elementor-element elementor-element-896a03c elementor-widget-mobile__width-inherit elementor-widget elementor-widget-image" data-id="896a03c" data-element_type="widget" data-widget_type="image.default">
@@ -115,7 +119,73 @@ display: table-cell;">{{indice_chiffres.nom}}</h2>		</div>
                             
 </div>
 
-</div><a href="{% url "centrale_enquete" indice_chiffres.enquete.id %}" style="outline:none!important;"><img src='{% static "wp-content/uploads/2024/03/retour.png" %}' style="height:50px; margin:50px"></img></a>
+</div>
+
+{% if indice_chiffres.indice %}
+<div id="popup">
+  <span class="close" onclick="closePopup()">×</span>
+  <img src="{{ indice_chiffres.indice.url }}" alt="image popup">
+</div>
+{% endif %}
+
+<div class="wrapper">
+  <div><a href="{% url "centrale_enquete" indice_chiffres.enquete.id %}" style="outline:none!important;"><img src='{% static "wp-content/uploads/2024/03/retour.png" %}' ></img></a></div>
+  <div></div>
+  {% if indice_chiffres.indice %}
+  <div><a onclick="openPopup()" style="outline:none!important;"><img src='{% static "wp-content/uploads/2024/03/bouton_indice.png" %}'></img></a></div>
+    {% else %}
+    <div></div>
+    {% endif %}
+</div>
+
+
+
+<style>
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+    }
+
+#popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  z-index: 999999; /* au-dessus de tout */
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+}
+
+#popup img {
+  max-width: 80vw;
+  max-height: 80vh;
+  display: block;
+}
+
+.close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 22px;
+}
+</style>
+
+<script>
+  function openPopup() {
+    document.getElementById("popup").style.display = "block";
+  }
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
+
+
 </div>
 </div>
 </div>

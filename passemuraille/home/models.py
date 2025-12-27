@@ -29,6 +29,7 @@ class Indice_chiffres(models.Model):
 	contenu_image = models.ImageField(verbose_name='Image (ou bien unique, ou bien qui sera à la suite du texte)', null=True, blank=True)
 	contenu_audio = models.FileField(verbose_name='Audio', null=True, blank=True) #upload_to...
 	contenu_video = models.FileField(verbose_name='Vidéo', null=True, blank=True) #upload_to...
+	indice = models.ImageField(verbose_name='Indice', null=True, blank=True)
 
 
 	def __str__(self):
@@ -46,6 +47,8 @@ class Indice_autre(models.Model):
 	contenu_image = models.ImageField(verbose_name='Image (ou bien unique, ou bien qui sera à la suite du texte)', null=True, blank=True)
 	contenu_audio = models.FileField(verbose_name='Audio', null=True, blank=True) #upload_to...
 	contenu_video = models.FileField(verbose_name='Vidéo', null=True, blank=True) #upload_to...
+	indice = models.ImageField(verbose_name='Indice', null=True, blank=True)
+
 
 	def __str__(self):
 		return "{}".format(self.nom)
