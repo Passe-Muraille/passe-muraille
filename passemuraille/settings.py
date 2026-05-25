@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import json
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -150,7 +151,10 @@ DATABASES = {
 
 from google.oauth2 import service_account
 from storages.backends.gcloud import GoogleCloudStorage
-GS_CREDENTIALS = service_account.Credentials.from_service_account_file(os.path.join(BASE_DIR, 'credential.json'))
+credentials_info = json.loads(os.environ["GOOGLE_CREDENTIALS_JSON"])
+GS_CREDENTIALS = service_account.Credentials.from_service_account_info(
+    credentials_info
+)
 DEFAULT_FILE_STORAGE="storages.backends.gcloud.GoogleCloudStorage"
 GS_PROJECT_ID = 'totemic-veld-410615'
 GS_BUCKET_NAME = 'bucket-passe-muraille'
